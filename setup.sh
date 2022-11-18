@@ -2,11 +2,17 @@
 # Setup PC workstation
 set -e # Exit on error
 
+# --- Variables ---
+PM="apt"
+PM_INSTALL="sudo $PM install -y"
+PM_UPDATE="sudo $PM update"
+PM_UPGRADE="sudo $PM upgrade -y"
+
 # --- Installs ---
 # Apt packages
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y git zsh flatpak steam clang fonts-firacode python3-pip
+$PM_UPDATE
+$PM_UPGRADE
+$PM_INSTALL curl git zsh flatpak steam clang fonts-firacode python3-pip
 
 # Flatpak packages
 flatpak install com.brave.Browser com.discordapp.Discord
@@ -27,7 +33,7 @@ rm vscode.deb
 
 # Docker
 curl -fsSL https://get.docker.com | sh
-sudo apt install -y docker-compose
+$PM_INSTALL docker-compose
 sudo usermod -aG docker $USER
 # TODO rootless docker?
 
