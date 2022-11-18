@@ -1,12 +1,18 @@
-FROM ubuntu:22.10
+ARG distro=ubuntu
+ARG tag=22.10
 
-# Install sudo if not already installed
-RUN if ! command -v sudo; then apt update && apt install -y sudo; fi
+FROM ${distro}:${tag}
 
-# Create user and add to sudoers
-RUN useradd -m -s /bin/bash -G sudo user
-RUN echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-USER user
+ARG distro=ubuntu
 
+# Copy files
+WORKDIR /home/fakeuser
 COPY *.sh ./
-RUN cat ubuntu.sh main.sh | sh
+COPY distros/${distro}.sh ./distro.sh
+
+# Setup user
+RUN cat distro.sh setup_user.sh | sh
+USER fakeuser
+
+# Run script
+RUN cat distro.sh main.sh | sh
