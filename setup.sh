@@ -19,7 +19,7 @@ flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.fla
 flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
 # Zsh theme
-git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k"
+git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" ~/powerlevel10k""
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 
 # Makepie
