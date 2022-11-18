@@ -1,13 +1,7 @@
-#!/bin/sh
-# Script to setup a PC workstation
-# Run as root (with a root shell or "sudo -E setup.sh" with setup.sh in PATH)
-# Example: sudo cp setup.sh /bin/workstation-setup && sudo workstation-setup
-set -xe # Print commands and exit on error
+# Print commands and exit on error
+set -xe
 
-# --- Variables (edit manually) ---
-PM_UPDATE="apt update"
-PM_UPGRADE="apt full-upgrade -y"
-PM_INSTALL="apt install -y"
+# Variables to edit manually
 GIT_USERNAME="Titouan Lacombe"
 GIT_EMAIL="titouan.lacombe99@gmail.com"
 
@@ -15,7 +9,7 @@ GIT_EMAIL="titouan.lacombe99@gmail.com"
 # Apt packages
 sudo $PM_UPDATE
 sudo $PM_UPGRADE
-sudo $PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip docker-compose
+sudo $PM_INSTALL $PACKAGES
 
 # VSCode
 if ! command -v code; then
