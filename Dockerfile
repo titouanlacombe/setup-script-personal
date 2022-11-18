@@ -21,4 +21,4 @@ RUN echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER user
 
 COPY setup.sh /setup.sh
-RUN /setup.sh
+RUN sudo sh ./setup.sh

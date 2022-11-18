@@ -1,19 +1,20 @@
 #!/bin/sh
-# Setup PC workstation
+# Setup PC workstation (sudo sh ./setup.sh)
 set -xe # Print commands and exit on error
 
 # --- Variables (edit manually when on distro) ---
-# PM_UPDATE="sudo apt update"
-# PM_INSTALL="sudo apt install -y"
-# PM_UPGRADE="sudo apt upgrade -y"
+# PM_UPDATE="apt update"
+# PM_INSTALL="apt install -y"
+# PM_UPGRADE="apt upgrade -y"
 
 # --- Installs ---
 # Apt packages
-sudo $PM_UPDATE
-sudo $PM_UPGRADE
-sudo $PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip
+$PM_UPDATE
+$PM_UPGRADE
+$PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip
 
 # Flatpak packages
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
 # Zsh theme
@@ -25,13 +26,13 @@ pip3 install makepie
 
 # VS Code
 curl https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 > vscode.deb
-sudo dpkg -i vscode.deb
+dpkg -i vscode.deb
 rm vscode.deb
 
 # Docker
 curl -fsSL https://get.docker.com | sh
-sudo $PM_INSTALL docker-compose
-sudo usermod -aG docker $USER
+$PM_INSTALL docker-compose
+usermod -aG docker $USER
 # TODO rootless docker?
 
 # Rust
