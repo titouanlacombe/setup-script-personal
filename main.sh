@@ -20,7 +20,7 @@ fi
 
 # Flatpak packages
 sudo flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
+sudo flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
 # Zsh theme
 if [ ! -d ~/powerlevel10k ]; then
