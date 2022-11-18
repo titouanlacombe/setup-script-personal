@@ -1,5 +1,6 @@
 #!/bin/sh
-# Setup PC workstation (sudo sh ./setup.sh)
+# Script to setup a PC workstation
+# Run as root (with a root shell or "sudo -E setup.sh" with setup.sh in PATH)
 set -xe # Print commands and exit on error
 
 # --- Variables (edit manually when on distro) ---
