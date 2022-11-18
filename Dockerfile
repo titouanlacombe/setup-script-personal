@@ -3,14 +3,17 @@ ARG image=ubuntu:22.10
 
 FROM $image
 
-ARG pm_update="apt update"
-ENV pm_update=$pm_update
+ARG PM_UPDATE="apt update"
+ENV PM_UPDATE=$PM_UPDATE
 
-ARG pm_install="apt install -y"
-ENV pm_install=$pm_install
+ARG PM_INSTALL="apt install -y"
+ENV PM_INSTALL=$PM_INSTALL
+
+ARG PM_UPGRADE="apt full-upgrade -y"
+ENV PM_UPGRADE=$PM_UPGRADE
 
 # Install sudo if not already installed
-RUN if ! command -v sudo; then ${pm_update} && ${pm_install} sudo; fi
+RUN if ! command -v sudo; then ${PM_UPDATE} && ${PM_INSTALL} sudo; fi
 
 # Create user and add to sudoers
 RUN useradd -m -s /bin/bash -G sudo user

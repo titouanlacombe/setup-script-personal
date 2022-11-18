@@ -2,11 +2,10 @@
 # Setup PC workstation
 set -xe # Print commands and exit on error
 
-# --- Variables ---
-PM="apt"
-PM_INSTALL="sudo $PM install -y"
-PM_UPDATE="sudo $PM update"
-PM_UPGRADE="sudo $PM upgrade -y"
+# --- Variables (edit manually when on distro) ---
+# PM_UPDATE="sudo apt update"
+# PM_INSTALL="sudo apt install -y"
+# PM_UPGRADE="sudo apt upgrade -y"
 
 # --- Installs ---
 # Apt packages
