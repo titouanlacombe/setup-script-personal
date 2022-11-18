@@ -6,11 +6,11 @@ FROM $image
 ARG PM_UPDATE="apt update"
 ENV PM_UPDATE=$PM_UPDATE
 
-ARG PM_INSTALL="apt install -y"
-ENV PM_INSTALL=$PM_INSTALL
-
 ARG PM_UPGRADE="apt full-upgrade -y"
 ENV PM_UPGRADE=$PM_UPGRADE
+
+ARG PM_INSTALL="apt install -y"
+ENV PM_INSTALL=$PM_INSTALL
 
 # Install sudo if not already installed
 RUN if ! command -v sudo; then ${PM_UPDATE} && ${PM_INSTALL} sudo; fi

@@ -4,8 +4,8 @@ set -xe # Print commands and exit on error
 
 # --- Variables (edit manually when on distro) ---
 # PM_UPDATE="apt update"
-# PM_INSTALL="apt install -y"
 # PM_UPGRADE="apt upgrade -y"
+# PM_INSTALL="apt install -y"
 
 # --- Installs ---
 # Apt packages
