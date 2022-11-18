@@ -36,6 +36,7 @@ pip3 install makepie
 if ! command -v docker; then
 	curl -fsSL "https://get.docker.com" | sh
 	usermod -aG docker $USER
+	$PM_INSTALL docker-compose
 fi
 
 # Rust
