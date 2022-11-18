@@ -14,29 +14,29 @@ $PM_UPGRADE
 $PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip
 
 # Flatpak packages
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
 flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
 # Zsh theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k"
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 
 # Makepie
 pip3 install makepie
 
 # VS Code
-curl https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 > vscode.deb
+curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" > vscode.deb
 dpkg -i vscode.deb
 rm vscode.deb
 
 # Docker
-curl -fsSL https://get.docker.com | sh
+curl -fsSL "https://get.docker.com" | sh
 $PM_INSTALL docker-compose
 usermod -aG docker $USER
 # TODO rootless docker?
 
 # Rust
-curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh
 
 # --- Configs ---
 # Git config
