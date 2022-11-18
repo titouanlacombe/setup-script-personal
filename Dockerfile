@@ -1,15 +1,13 @@
 # Dockerfile to test setup.sh on multiple environments and benchmark time & storage
 ARG image=ubuntu:22.10
+ARG PM_UPDATE="apt update"
+ARG PM_UPGRADE="apt full-upgrade -y"
+ARG PM_INSTALL="apt install -y"
 
 FROM $image
 
-ARG PM_UPDATE="apt update"
 ENV PM_UPDATE=$PM_UPDATE
-
-ARG PM_UPGRADE="apt full-upgrade -y"
 ENV PM_UPGRADE=$PM_UPGRADE
-
-ARG PM_INSTALL="apt install -y"
 ENV PM_INSTALL=$PM_INSTALL
 
 # Install sudo if not already installed
