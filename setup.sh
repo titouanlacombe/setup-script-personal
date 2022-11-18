@@ -9,14 +9,12 @@ set -xe # Print commands and exit on error
 
 # --- Installs ---
 # Apt packages
-$PM_UPDATE
-$PM_UPGRADE
-$PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip
+sudo $PM_UPDATE
+sudo $PM_UPGRADE
+sudo $PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip
 
 # Flatpak packages
-flatpak install com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
-
-# 
+flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
 # Zsh theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
@@ -32,7 +30,7 @@ rm vscode.deb
 
 # Docker
 curl -fsSL https://get.docker.com | sh
-$PM_INSTALL docker-compose
+sudo $PM_INSTALL docker-compose
 sudo usermod -aG docker $USER
 # TODO rootless docker?
 
