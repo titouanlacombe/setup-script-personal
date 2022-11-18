@@ -1,6 +1,6 @@
 #!/bin/sh
 # Setup PC workstation
-set -e # Exit on error
+set -xe # Print commands and exit on error
 
 # --- Variables ---
 PM="apt"
@@ -12,10 +12,10 @@ PM_UPGRADE="sudo $PM upgrade -y"
 # Apt packages
 $PM_UPDATE
 $PM_UPGRADE
-$PM_INSTALL curl git zsh flatpak steam clang fonts-firacode python3-pip
+$PM_INSTALL curl git zsh flatpak clang fonts-firacode python3-pip
 
 # Flatpak packages
-flatpak install com.brave.Browser com.discordapp.Discord
+flatpak install com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
 # 
 
@@ -43,3 +43,7 @@ curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
 # --- Configs ---
 # Git config
 git config --global user.name "Titouan Lacombe" && git config --global user.email "titouan.lacombe99@gmail.com"
+
+# --- End ---
+echo "Setup complete !"
+echo "Please reboot to apply changes"
