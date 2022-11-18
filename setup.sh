@@ -27,7 +27,7 @@ pip3 install makepie
 
 # VS Code
 curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" > vscode.deb
-dpkg -i vscode.deb
+$PM_INSTALL ./vscode.deb
 rm vscode.deb
 
 # Docker
