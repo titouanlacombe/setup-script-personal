@@ -1,3 +1,6 @@
+# Print commands and exit on error
+set -xe
+
 # Install sudo if not already installed
 if ! command -v sudo; then $PM_UPDATE && $PM_INSTALL sudo; fi
 
