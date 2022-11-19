@@ -13,9 +13,7 @@ sudo $PM_INSTALL $PACKAGES
 
 # VSCode
 if ! command -v code; then
-	curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" > vscode.deb
-	sudo $PM_INSTALL ./vscode.deb
-	rm vscode.deb
+	sudo $PM_INSTALL code
 fi
 
 # Flatpak packages
@@ -35,9 +33,9 @@ pip3 install makepie
 # TODO rootless docker?
 if ! command -v docker; then
 	curl -fsSL "https://get.docker.com" | sh
-	usermod -aG docker $USER
-	$PM_INSTALL docker-compose
 fi
+sudo usermod -aG docker $(whoami)
+sudo $PM_INSTALL docker-compose
 
 # Rust
 if ! command -v rustup; then
