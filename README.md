@@ -9,5 +9,5 @@ The Dockerfile is to test setup.sh on multiple environments and benchmark time &
 
 Examples:
 - `docker build --build-arg distro=ubuntu --build-arg tag=22.10 .`
-- `docker build --build-arg distro=archlinux --build-arg tag=latest . `
+- `docker build --build-arg distro=archlinux --build-arg tag=latest .`
 - `docker build --build-arg distro=fedora --build-arg tag=37 .`

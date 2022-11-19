@@ -9,6 +9,6 @@ setup() {
 }
 
 clean() {
-	sudo pacman -Qtdq | pacman -Rns -
+	sudo pacman -Qtdq | sudo pacman -Rns -
 	sudo pacman -Scc --noconfirm
 }
