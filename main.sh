@@ -5,17 +5,16 @@ set -xe
 GIT_USERNAME="Titouan Lacombe"
 GIT_EMAIL="titouan.lacombe99@gmail.com"
 
-# --- Setup ---
-sudo $PM_UPDATE
-sudo $PM_UPGRADE
-
-setup
-
 # --- Installs ---
 # Apt packages
+sudo $PM_UPDATE
+sudo $PM_UPGRADE
 sudo $PM_INSTALL $PACKAGES
 
-# VSCode
+# Custom distro setup
+custom
+
+# Generic VSCode
 if ! command -v code; then
 	sudo $PM_INSTALL code
 fi
@@ -34,7 +33,7 @@ fi
 # Makepie
 pip3 install makepie
 
-# Docker
+# Generic Docker
 # TODO rootless docker?
 if ! command -v docker; then
 	curl -fsSL "https://get.docker.com" | sh
@@ -45,14 +44,14 @@ sudo $PM_INSTALL docker-compose
 # Rust
 if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
-	source "$HOME/.cargo/env"
+	source "$HOME/.cargo/env" || true
 fi
 
 # --- Configs ---
 # Git config
 git config --global user.name $GIT_USERNAME && git config --global user.email $GIT_EMAIL
 
-# --- Cleanup ---
+# --- Distro specific cleanup ---
 clean
 
 # --- End ---
