@@ -1,9 +1,9 @@
-ARG distro=ubuntu
-ARG tag=22.10
+ARG distro
+ARG tag
 
 FROM ${distro}:${tag}
 
-ARG distro=ubuntu
+ARG distro
 ENV distro=${distro}
 
 # Copy files
