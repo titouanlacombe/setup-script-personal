@@ -5,10 +5,14 @@ set -xe
 GIT_USERNAME="Titouan Lacombe"
 GIT_EMAIL="titouan.lacombe99@gmail.com"
 
-# --- Installs ---
-# Apt packages
+# --- Setup ---
 sudo $PM_UPDATE
 sudo $PM_UPGRADE
+
+setup
+
+# --- Installs ---
+# Apt packages
 sudo $PM_INSTALL $PACKAGES
 
 # VSCode
@@ -17,6 +21,7 @@ if ! command -v code; then
 fi
 
 # Flatpak packages
+# TODO fix on fedora
 sudo flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
 sudo flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
 
@@ -40,11 +45,15 @@ sudo $PM_INSTALL docker-compose
 # Rust
 if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
+	source "$HOME/.cargo/env"
 fi
 
 # --- Configs ---
 # Git config
 git config --global user.name $GIT_USERNAME && git config --global user.email $GIT_EMAIL
+
+# --- Cleanup ---
+clean
 
 # --- End ---
 echo "Setup complete !"
