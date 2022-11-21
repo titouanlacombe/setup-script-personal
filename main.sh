@@ -22,7 +22,11 @@ fi
 # Flatpak packages
 # TODO fix on fedora
 sudo flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-sudo flatpak install -y com.brave.Browser com.discordapp.Discord com.valvesoftware.Steam
+sudo flatpak install -y \
+	com.brave.Browser \
+	com.discordapp.Discord \
+	com.valvesoftware.Steam \
+	org.qbittorrent.qBittorrent
 
 # Zsh theme
 if [ ! -d ~/powerlevel10k ]; then
