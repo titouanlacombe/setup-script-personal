@@ -11,7 +11,7 @@ sudo $PM_UPDATE
 sudo $PM_UPGRADE
 sudo $PM_INSTALL $PACKAGES
 
-# Custom distro setup
+# Custom per distro setup
 custom
 
 # Generic VSCode
@@ -28,10 +28,9 @@ sudo flatpak install -y \
 	com.valvesoftware.Steam \
 	org.qbittorrent.qBittorrent
 
-# Zsh theme
+# powerlevel10k (Zsh theme)
 if [ ! -d ~/powerlevel10k ]; then
 	git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" ~/powerlevel10k
-	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 fi
 
 # Makepie
@@ -52,8 +51,9 @@ if ! command -v rustup; then
 fi
 
 # --- Configs ---
-# Git config
-git config --global user.name $GIT_USERNAME && git config --global user.email $GIT_EMAIL
+cp -r ./home/* "$HOME"
+
+mkdir -p "$HOME/projects"
 
 # --- Distro specific cleanup ---
 clean
