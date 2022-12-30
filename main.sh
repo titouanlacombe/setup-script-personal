@@ -47,7 +47,7 @@ sudo $PM_INSTALL docker-compose
 # Rust
 if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
-	source "$HOME/.cargo/env" || true
+	$HOME/.cargo/env
 fi
 
 # --- Configs ---
