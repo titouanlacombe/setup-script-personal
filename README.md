@@ -7,6 +7,12 @@ To use:
 The Dockerfile is to test setup.sh on multiple environments and benchmark time & storage
 - `docker build --build-arg distro=<image> --build-arg tag=<image_tag> .`
 
+Enter the container with:
+- `docker run -it <image_id> bash`
+
+Then test run the script with:
+- `cat distro.sh main.sh | sh`
+
 Examples:
 - `docker build --build-arg distro=ubuntu --build-arg tag=22.10 .`
 - `docker build --build-arg distro=archlinux --build-arg tag=latest .`

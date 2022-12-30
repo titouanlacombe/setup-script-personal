@@ -53,6 +53,10 @@ fi
 # --- Configs ---
 cp -r ./home/* "$HOME"
 
+# Aliases
+echo "alias pupdate='sudo $PM_UPDATE && sudo $PM_UPGRADE'" >> "$HOME/.zshrc"
+echo "alias pinstall='sudo $PM_INSTALL'" >> "$HOME/.zshrc"
+
 mkdir -p "$HOME/projects"
 
 # --- Distro specific cleanup ---

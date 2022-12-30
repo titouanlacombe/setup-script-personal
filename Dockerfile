@@ -16,5 +16,8 @@ RUN cat distro.sh setup_user.sh | sh
 USER fakeuser
 
 # Run script
+COPY home ./
 COPY main.sh ./
-RUN cat distro.sh main.sh | sh
+
+# Run forever
+CMD tail -f /dev/null

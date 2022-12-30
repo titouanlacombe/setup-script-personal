@@ -1,7 +1,7 @@
 PM_UPDATE="pacman -Sy"
 PM_UPGRADE="pacman -Su --noconfirm"
 PM_INSTALL="pacman -S --noconfirm --needed"
-PACKAGES="curl gnupg git zsh vlc ffmpeg flatpak clang ttf-fira-code python-pip"
+PACKAGES="curl wget gnupg git zsh vlc ffmpeg flatpak clang ttf-fira-code python-pip"
 
 custom() {
 	# Docker
