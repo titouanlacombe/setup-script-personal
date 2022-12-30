@@ -20,9 +20,8 @@ if ! command -v code; then
 fi
 
 # Flatpak packages
-# TODO fix on fedora
 sudo flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-sudo flatpak install -y \
+sudo flatpak install -y --noninteractive \
 	com.brave.Browser \
 	com.discordapp.Discord \
 	com.valvesoftware.Steam \
