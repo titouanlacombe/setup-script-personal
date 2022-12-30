@@ -47,11 +47,12 @@ sudo $PM_INSTALL docker-compose
 # Rust
 if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
+	chmod +x "$HOME/.cargo/env"
 	$HOME/.cargo/env
 fi
 
 # --- Configs ---
-cp -r ./home/* "$HOME"
+cd home && cp -r $(ls -A) "$HOME"
 
 # Aliases
 echo "alias pupdate='sudo $PM_UPDATE && sudo $PM_UPGRADE'" >> "$HOME/.zshrc"
