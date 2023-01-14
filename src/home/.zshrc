@@ -49,11 +49,3 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # Add /home/cosmic/.local/bin to PATH
 export PATH=$PATH:/home/cosmic/.local/bin
-
-# Aliases
-alias pupdate='sudo $PM_UPDATE && sudo $PM_UPGRADE' >> "$HOME/.zshrc"
-alias pinstall='sudo $PM_INSTALL' >> "$HOME/.zshrc"
-alias premove='sudo $PM_REMOVE' >> "$HOME/.zshrc"
-alias psearch='$PM_SEARCH' >> "$HOME/.zshrc"
-alias pclean='$PM_CLEAN' >> "$HOME/.zshrc"
-alias dc='docker-compose' >> "$HOME/.zshrc"

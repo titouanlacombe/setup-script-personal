@@ -40,3 +40,11 @@ for FILE in $FILES; do
 done
 
 mkdir -p "$HOME/projects"
+
+# Aliases
+echo "alias pupdate='sudo $PM_UPDATE && sudo $PM_UPGRADE'" >> "$HOME/.zshrc"
+echo "alias pinstall='sudo $PM_INSTALL'" >> "$HOME/.zshrc"
+echo "alias premove='sudo $PM_REMOVE'" >> "$HOME/.zshrc"
+echo "alias psearch='$PM_SEARCH'" >> "$HOME/.zshrc"
+echo "alias pclean='$PM_CLEAN'" >> "$HOME/.zshrc"
+echo "alias dc='docker-compose'" >> "$HOME/.zshrc"
