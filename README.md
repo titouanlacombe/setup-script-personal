@@ -1,10 +1,13 @@
 # Script to setup a PC workstation
 
-To use:
-- Edit user variables in main.sh
-- `cat ./distros/<distro>.sh main.sh | sh`
+## Usage
 
-Create a container & enter it with:
-- `docker-compose up -d`
+- Edit config in config.sh
+- `main.sh`
+
+## Docker usage
+
+Create a container, enter it and test setup with:
+- `docker-compose up -d <distro>`
 - `docker exec -it <distro> /bin/bash`
-- `cat ./distros/<distro>.sh main.sh | sh`
+- `main.sh`

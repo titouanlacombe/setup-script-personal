@@ -5,28 +5,28 @@ services:
     container_name: ubuntu
     build:
       args:
-        - distro=ubuntu
-        - tag=22.10
+        - image=ubuntu:22.10
+        - distro=kinetic
       context: .
     volumes:
-      - .:/home/fakeuser/setup
+      - ./src:/home/fakeuser/setup
 
   fedora:
     container_name: fedora
     build:
       args:
-        - distro=fedora
-        - tag=37
+        - image=fedora:37
+        - distro=melodic
       context: .
     volumes:
-      - .:/home/fakeuser/setup
+      - ./src:/home/fakeuser/setup
 
   arch:
     container_name: arch
     build:
       args:
-        - distro=archlinux
-        - tag=latest
+        - image=archlinux:latest
+        - distro=noetic
       context: .
     volumes:
-      - .:/home/fakeuser/setup
+      - ./src:/home/fakeuser/setup

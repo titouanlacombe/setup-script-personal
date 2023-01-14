@@ -1,17 +1,16 @@
-ARG distro
-ARG tag
-
-FROM ${distro}:${tag}
+ARG image
+FROM ${image}
 
 ARG distro
-ENV distro=${distro}
 
-# Setup user
+# User setup (distros docker images workaround)
 WORKDIR /home/fakeuser/setup
-COPY setup_user.sh ./
-COPY distros ./distros
-RUN cat ./distros/${distro}.sh setup_user.sh | sh
+COPY src/setup_user.sh ./
+COPY src/distros/${distro}-config.sh ./d-config.sh
+RUN cat d-config.sh setup_user.sh | /bin/bash && \
+	rm /home/fakeuser/setup/*
 USER fakeuser
 
-# Run forever
+# Run forever and stop with SIGKILL
+STOPSIGNAL SIGKILL
 CMD tail -f /dev/null

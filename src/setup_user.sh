@@ -2,7 +2,7 @@
 set -xe
 
 # Install sudo if not already installed
-if ! command -v sudo; then $PM_UPDATE && $PM_INSTALL sudo; fi
+if ! command -v sudo; then $PM_UPDATE && $PM_INSTALL sudo lsb-release; fi
 
 # Create user
 useradd -ms /bin/bash fakeuser

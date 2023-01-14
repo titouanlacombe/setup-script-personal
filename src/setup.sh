@@ -1,20 +1,4 @@
-# Print commands and exit on error
-set -xe
-
-# Variables to edit manually
-GIT_USERNAME="Titouan Lacombe"
-GIT_EMAIL="titouan.lacombe99@gmail.com"
-
-# --- Installs ---
-# Apt packages
-sudo $PM_UPDATE
-sudo $PM_UPGRADE
-sudo $PM_INSTALL $PACKAGES
-
-# Custom per distro setup
-custom
-
-# Generic VSCode
+# VSCode
 if ! command -v code; then
 	sudo $PM_INSTALL code
 fi
@@ -35,7 +19,7 @@ fi
 # Makepie
 pip3 install makepie
 
-# Generic Docker
+# Docker
 # TODO rootless docker?
 if ! command -v docker; then
 	curl -fsSL "https://get.docker.com" | sh
@@ -48,18 +32,11 @@ if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
 fi
 
-# --- Configs ---
-cd home && cp -r $(ls -A) "$HOME"
-
-# Aliases
-echo "alias pupdate='sudo $PM_UPDATE && sudo $PM_UPGRADE'" >> "$HOME/.zshrc"
-echo "alias pinstall='sudo $PM_INSTALL'" >> "$HOME/.zshrc"
+# Configs
+HOME_DIR="home"
+FILES=$(ls -A "$HOME_DIR")
+for FILE in $FILES; do
+	cp -r "$HOME_DIR/$FILE" "$HOME"
+done
 
 mkdir -p "$HOME/projects"
-
-# --- Distro specific cleanup ---
-clean
-
-# --- End ---
-echo "Setup complete !"
-echo "Please reboot to apply changes"
