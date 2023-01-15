@@ -90,8 +90,8 @@ echo "alias dc='docker-compose'" >> "$HOME/.zshrc"
 # --- Cleanup ---
 eval $PM_CLEAN
 
-if [ -f "distros/$DISTRO/cleanup.sh" ]; then
-	source "distros/$DISTRO/cleanup.sh"
+if [ -f "distros/$DISTRO/clean.sh" ]; then
+	source "distros/$DISTRO/clean.sh"
 fi
 
 # End

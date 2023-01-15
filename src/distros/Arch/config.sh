@@ -3,7 +3,7 @@ PM_UPGRADE="pacman -Su --noconfirm"
 PM_INSTALL="pacman -S --noconfirm --needed"
 PM_REMOVE="pacman -Rns --noconfirm"
 PM_SEARCH="pacman -Ss"
-PM_CLEAN="pacman -Scc --noconfirm"
+PM_CLEAN="sudo pacman -Scc --noconfirm"
 
 PACKAGES_ALIAS=(
 	["gpg"]="gnupg"
