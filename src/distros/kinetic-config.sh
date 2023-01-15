@@ -7,3 +7,6 @@ PM_CLEAN="sudo apt autoremove -y && sudo apt clean all"
 
 PACKAGES_ALIAS=(
 )
+
+REQS_ALIAS=(
+)

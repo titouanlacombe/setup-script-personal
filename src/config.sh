@@ -14,3 +14,11 @@ PACKAGES=(
 	"fonts-firacode"
 	"python3-pip"
 )
+
+REQS=(
+	"sudo"
+	"lsb-release"
+)
+
+declare -A PACKAGES_ALIAS
+declare -A REQS_ALIAS

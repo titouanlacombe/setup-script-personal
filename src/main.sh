@@ -1,5 +1,5 @@
 #!/bin/bash
-# Print commands and exit on error
+# Exit on error
 set -e
 
 # Get distro
@@ -23,9 +23,10 @@ sudo $PM_UPDATE
 sudo $PM_UPGRADE
 
 # Convert packages names to alias if needed and install them
-for PACKAGE in ${PACKAGES[@]}; do
+for i in "${!PACKAGES[@]}"; do
+	PACKAGE=${PACKAGES[$i]}
 	if [ -n "${PACKAGES_ALIAS[$PACKAGE]}" ]; then
-		PACKAGES[$PACKAGE]=${PACKAGES_ALIAS[$PACKAGE]}
+		PACKAGES[$i]=${PACKAGES_ALIAS[$PACKAGE]}
 	fi
 done
 sudo $PM_INSTALL ${PACKAGES[@]}

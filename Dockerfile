@@ -1,16 +1,15 @@
 ARG image
 FROM ${image}
 
-ARG distro
-
 # User setup (distros docker images workaround)
-WORKDIR /home/fakeuser/setup
-COPY src/setup_user.sh ./
+ARG distro
+COPY src/setup_user.sh src/config.sh ./
 COPY src/distros/${distro}-config.sh ./d-config.sh
-RUN cat d-config.sh setup_user.sh | /bin/bash && \
-	rm /home/fakeuser/setup/*
-USER fakeuser
+RUN ./setup_user.sh && \
+	rm -f ./setup_user.sh ./config.sh ./d-config.sh
 
 # Run forever and stop with SIGKILL
+USER fakeuser
+WORKDIR /home/fakeuser/setup
 STOPSIGNAL SIGKILL
 CMD tail -f /dev/null

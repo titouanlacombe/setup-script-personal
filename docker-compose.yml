@@ -16,7 +16,7 @@ services:
     build:
       args:
         - image=fedora:37
-        - distro=melodic
+        - distro=ThirtySeven
       context: .
     volumes:
       - ./src:/home/fakeuser/setup
