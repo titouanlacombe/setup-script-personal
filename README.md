@@ -9,4 +9,4 @@
 
 Create a container, enter it and test setup with:
 - `docker-compose up -d <distro>`
-- `docker exec -it <distro> /home/fakeuser/main.sh`
+- `docker exec -it <distro> /home/fakeuser/setup/main.sh`

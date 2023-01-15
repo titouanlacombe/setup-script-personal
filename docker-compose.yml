@@ -9,7 +9,7 @@ services:
         - distro=Ubuntu
       context: .
     volumes:
-      - ./src:/home/fakeuser
+      - ./src:/home/fakeuser/setup
 
   fedora:
     container_name: fedora
@@ -19,7 +19,7 @@ services:
         - distro=Fedora
       context: .
     volumes:
-      - ./src:/home/fakeuser
+      - ./src:/home/fakeuser/setup
 
   arch:
     container_name: arch
@@ -29,4 +29,4 @@ services:
         - distro=Arch
       context: .
     volumes:
-      - ./src:/home/fakeuser
+      - ./src:/home/fakeuser/setup

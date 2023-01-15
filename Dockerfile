@@ -10,6 +10,6 @@ RUN ./setup_user.sh && \
 
 # Run forever and stop with SIGKILL
 USER fakeuser
-WORKDIR /home/fakeuser
+WORKDIR /home/fakeuser/setup
 STOPSIGNAL SIGKILL
 CMD tail -f /dev/null
