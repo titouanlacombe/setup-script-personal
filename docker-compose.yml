@@ -6,27 +6,27 @@ services:
     build:
       args:
         - image=ubuntu:22.10
-        - distro=kinetic
+        - distro=Ubuntu
       context: .
     volumes:
-      - ./src:/home/fakeuser/setup
+      - ./src:/home/fakeuser
 
   fedora:
     container_name: fedora
     build:
       args:
         - image=fedora:37
-        - distro=ThirtySeven
+        - distro=Fedora
       context: .
     volumes:
-      - ./src:/home/fakeuser/setup
+      - ./src:/home/fakeuser
 
   arch:
     container_name: arch
     build:
       args:
         - image=archlinux:latest
-        - distro=noetic
+        - distro=Arch
       context: .
     volumes:
-      - ./src:/home/fakeuser/setup
+      - ./src:/home/fakeuser

@@ -2,8 +2,8 @@
 
 ## Usage
 
-- Edit config in config.sh
-- `main.sh`
+- Edit config.sh
+- Execute `main.sh`
 
 ## Docker usage
 

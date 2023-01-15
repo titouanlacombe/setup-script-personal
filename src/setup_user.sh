@@ -6,7 +6,7 @@ source "config.sh"
 source "d-config.sh"
 
 # Install required packages
-sudo $PM_UPDATE
+$PM_UPDATE
 
 # Convert packages names to alias if needed and install them
 for i in "${!REQS[@]}"; do
@@ -15,7 +15,7 @@ for i in "${!REQS[@]}"; do
 		REQS[$i]=${REQS_ALIAS[$PACKAGE]}
 	fi
 done
-sudo $PM_INSTALL ${REQS[@]}
+$PM_INSTALL ${REQS[@]}
 
 # Create user
 useradd -ms /bin/bash fakeuser

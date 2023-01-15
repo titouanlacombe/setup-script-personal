@@ -3,19 +3,19 @@
 set -e
 
 # Get distro
-DISTRO=$(lsb_release -cs)
-if ! [ -f "distros/$DISTRO-config.sh" ]; then
+DISTRO=$(lsb_release -is)
+if ! [ -f "distros/$DISTRO/config.sh" ]; then
 	echo "Distro '$DISTRO' not supported"
 	exit 1
 fi
 
 # Configs
 source "config.sh"
-source "distros/$DISTRO-config.sh"
+source "distros/$DISTRO/config.sh"
 
 # --- Setup ---
-if [ -f "distros/$DISTRO-presetup.sh" ]; then
-	source "distros/$DISTRO-presetup.sh"
+if [ -f "distros/$DISTRO/presetup.sh" ]; then
+	source "distros/$DISTRO/presetup.sh"
 fi
 
 # Update packages
@@ -32,8 +32,8 @@ done
 sudo $PM_INSTALL ${PACKAGES[@]}
 
 # Custom setup
-if [ -f "distros/$DISTRO-setup.sh" ]; then
-	source "distros/$DISTRO-setup.sh"
+if [ -f "distros/$DISTRO/setup.sh" ]; then
+	source "distros/$DISTRO/setup.sh"
 fi
 
 # VSCode
@@ -90,8 +90,8 @@ echo "alias dc='docker-compose'" >> "$HOME/.zshrc"
 # --- Cleanup ---
 eval $PM_CLEAN
 
-if [ -f "distros/$DISTRO-cleanup.sh" ]; then
-	source "distros/$DISTRO-cleanup.sh"
+if [ -f "distros/$DISTRO/cleanup.sh" ]; then
+	source "distros/$DISTRO/cleanup.sh"
 fi
 
 # End
