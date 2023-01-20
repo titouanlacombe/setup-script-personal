@@ -1,5 +1,7 @@
 # Script to setup a PC workstation
 
+TODO add https://ohmyz.sh/#install
+
 ## Usage
 
 - Edit config.sh
