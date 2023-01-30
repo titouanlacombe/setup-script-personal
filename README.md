@@ -2,8 +2,10 @@
 
 ## Usage
 
+- Download & extract: `curl https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip -o setup.zip && unzip setup.zip -d setup-script && rm setup.zip`
+- Go to the extracted folder `cd setup-script`
 - Edit config.sh
-- Execute `main.sh`
+- Execute `./main.sh`
 
 ## Docker usage
 
