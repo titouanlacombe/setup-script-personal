@@ -13,6 +13,9 @@ PACKAGES=(
 	"clang"
 	"fonts-firacode"
 	"python3-pip"
+	"virt-manager"
+	"libvirt"
+	"qemu"
 )
 
 REQS=(
