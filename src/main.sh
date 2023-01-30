@@ -4,7 +4,14 @@ set -e
 
 # Get distro
 DISTRO=$(lsb_release -is)
-if ! [ -f "distros/$DISTRO/config.sh" ]; then
+
+# Replace if alias
+if [ -f "distros/$DISTRO" ]; then
+	DISTRO=$(cat "distros/$DISTRO")
+fi
+
+# Check if distro supported
+if ! [ -d "distros/$DISTRO" ]; then
 	echo "Distro '$DISTRO' not supported"
 	exit 1
 fi
