@@ -1,0 +1,1 @@
+source ../Arch/clean.sh

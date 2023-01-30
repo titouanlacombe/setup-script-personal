@@ -1,0 +1,1 @@
+source ../Arch/config.sh
