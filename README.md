@@ -2,8 +2,8 @@
 
 ## Usage
 
-- Download & extract: `curl -Lo setup.zip https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip && unzip setup.zip -d setup-script && rm setup.zip`
-- Go to the extracted folder `cd setup-script`
+- Download & extract: `curl -Lo setup.zip https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip && unzip setup.zip && rm setup.zip`
+- Go to the extracted folder `cd setup-script-personal-main`
 - Edit config.sh
 - Execute `./main.sh`
 
