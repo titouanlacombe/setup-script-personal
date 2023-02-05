@@ -41,11 +41,7 @@ fi
 
 # Flatpak packages
 sudo flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-sudo flatpak install -y --noninteractive \
-	com.brave.Browser \
-	com.discordapp.Discord \
-	com.valvesoftware.Steam \
-	org.qbittorrent.qBittorrent
+sudo flatpak install -y --noninteractive ${FLATPAK_PACKAGES[@]}
 
 # powerlevel10k (Zsh theme)
 if [ ! -d ~/powerlevel10k ]; then
