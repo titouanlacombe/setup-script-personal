@@ -18,6 +18,16 @@ PACKAGES=(
 	"qemu"
 )
 
+FLATPAK_PACKAGES=(
+	"com.brave.Browser"
+	"com.discordapp.Discord"
+	"com.valvesoftware.Steam"
+	"org.qbittorrent.qBittorrent"
+	"org.bunkus.mkvtoolnix-gui"
+	"fr.handbrake.ghb"
+	"com.heroicgameslauncher.hgl"
+)
+
 REQS=(
 	"sudo"
 	"lsb-release"
