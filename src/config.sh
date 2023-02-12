@@ -21,11 +21,18 @@ PACKAGES=(
 FLATPAK_PACKAGES=(
 	"com.brave.Browser"
 	"com.discordapp.Discord"
+
 	"com.valvesoftware.Steam"
+	"com.heroicgameslauncher.hgl"
+	"org.yuzu_emu.yuzu"
+	
 	"org.qbittorrent.qBittorrent"
+	"nz.mega.MEGAsync"
+	"io.bassi.Amberol"
+	"org.gimp.GIMP"
+	
 	"org.bunkus.mkvtoolnix-gui"
 	"fr.handbrake.ghb"
-	"com.heroicgameslauncher.hgl"
 )
 
 REQS=(
