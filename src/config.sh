@@ -16,6 +16,8 @@ PACKAGES=(
 	"virt-manager"
 	"libvirt"
 	"qemu"
+
+	"lutris"
 )
 
 FLATPAK_PACKAGES=(
