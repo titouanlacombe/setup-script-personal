@@ -1,1 +1,1 @@
-add https://ohmyz.sh/#install ?
+add https://ohmyz.sh/#install
