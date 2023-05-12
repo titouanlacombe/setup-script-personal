@@ -1,3 +1,3 @@
 add neofetch
 
-custom config zsh
+custom config zsh + add oh my zsh
