@@ -114,6 +114,6 @@ if [ -f "distros/$DISTRO/clean.sh" ]; then
 fi
 
 # End
-neofetch
+neofetch --stdout
 echo "Setup complete !"
 echo "Reboot to apply changes"
