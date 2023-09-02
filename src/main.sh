@@ -84,12 +84,22 @@ mkdir -p "$HOME/projects"
 mkdir -p "$HOME/VMs/images" "$HOME/VMs/disks"
 chmod 777 "$HOME/VMs/images" "$HOME/VMs/disks"
 
-# Configure zsh
 echo "Configuring zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sed "s/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/g" "$HOME/.zshrc"
-chsh -s $(which zsh)
+
+# If oh-my-zsh is not installed
+if ! [ -d "$HOME/.oh-my-zsh" ]; then
+	# Install oh-my-zsh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
+fi
+
+# If powerlevel10k is not installed
+if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+	# Install powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	sed "s/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/g" "$HOME/.zshrc"
+fi
+
+sudo chsh -s $(which zsh)
 
 # Makepie
 echo "Installing makepie..."
@@ -97,7 +107,7 @@ pip3 install makepie
 
 # --- Cleanup ---*
 echo "Cleaning up..."
-sudo sh -c $PM_CLEAN
+sudo sh -c "$PM_CLEAN"
 if [ -f "distros/$DISTRO/clean.sh" ]; then
 	source "distros/$DISTRO/clean.sh"
 fi
