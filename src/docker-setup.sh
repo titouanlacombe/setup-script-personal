@@ -10,7 +10,7 @@ REQS=(
 	"sudo"
 )
 if [ "$DISTRO" == "Fedora" ]; then
-	REQS[1]="redhat-lsb-core"
+	REQS[0]="redhat-lsb-core"
 fi
 
 # Install required packages
