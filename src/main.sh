@@ -99,7 +99,7 @@ if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
 fi
 
 # Change default shell
-sudo chsh -s "$(which zsh)" "$(whoami)"
+sudo chsh -s "/bin/zsh" $(whoami)
 
 # Makepie
 echo "Installing makepie..."
