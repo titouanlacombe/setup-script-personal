@@ -3,7 +3,9 @@
 ## Usage
 
 ```
-curl -sL https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip | unzip - && \
+curl -sL https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip -o temp.zip && \
+unzip temp.zip && \
+rm temp.zip && \
 pushd setup-script-personal-main/src && \
 ./main.sh && \
 popd && \
