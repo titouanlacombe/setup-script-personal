@@ -99,7 +99,8 @@ if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
 	sed "s/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/g" "$HOME/.zshrc"
 fi
 
-sudo chsh -s $(which zsh)
+# Change default shell
+sudo chsh -s "$(which zsh)" "$(whoami)"
 
 # Makepie
 echo "Installing makepie..."
