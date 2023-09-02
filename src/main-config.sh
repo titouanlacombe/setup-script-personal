@@ -6,10 +6,6 @@ REQS=(
 
 # Packages to install
 PACKAGES=(
-	"clang"
-	"libvirt"
-	"qemu"
-
 	"curl"
 	"git"
 	"zsh"
@@ -27,15 +23,14 @@ PACKAGES=(
 FLATPAK_PACKAGES=(
 	"com.brave.Browser"
 	"com.discordapp.Discord"
+	"io.bassi.Amberol"
 
+	"org.gimp.GIMP"
 	"com.valvesoftware.Steam"
 	"com.heroicgameslauncher.hgl"
-	"org.yuzu_emu.yuzu"
 	
 	"org.qbittorrent.qBittorrent"
 	"nz.mega.MEGAsync"
-	"io.bassi.Amberol"
-	"org.gimp.GIMP"
 	
 	"org.bunkus.mkvtoolnix-gui"
 	"fr.handbrake.ghb"
