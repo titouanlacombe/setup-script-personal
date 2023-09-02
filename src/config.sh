@@ -8,6 +8,7 @@ PACKAGES=(
 	"code"
 	"flatpak"
 	"clang"
+	"neofetch"
 	"fonts-firacode"
 	"python3-pip"
 	"virt-manager"
