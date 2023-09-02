@@ -7,7 +7,3 @@ PM_REMOVE=" $PM autoremove -y && $PM clean all"
 PACKAGES_ALIAS=(
 	["fonts-firacode"]="fira-code-fonts"
 )
-
-REQS_ALIAS=(
-	["lsb-release"]="redhat-lsb-core"
-)

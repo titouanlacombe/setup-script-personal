@@ -1,21 +1,29 @@
-PACKAGES=(
-	"curl"
+# Distro packages installed before distro setup
+REQS=(
+	"wget"
 	"gpg"
+)
+
+# Packages to install
+PACKAGES=(
+	"clang"
+	"libvirt"
+	"qemu"
+
+	"curl"
 	"git"
 	"zsh"
 	"vlc"
 	"ffmpeg"
 	"code"
 	"flatpak"
-	"clang"
 	"neofetch"
 	"fonts-firacode"
 	"python3-pip"
 	"virt-manager"
-	"libvirt"
-	"qemu"
 )
 
+# Flatpak packages to install
 FLATPAK_PACKAGES=(
 	"com.brave.Browser"
 	"com.discordapp.Discord"
@@ -33,11 +41,6 @@ FLATPAK_PACKAGES=(
 	"fr.handbrake.ghb"
 )
 
-REQS=(
-	"sudo"
-	"lsb-release"
-	"wget"
-)
-
-declare -A PACKAGES_ALIAS
+# Set aliases to empty by default
 declare -A REQS_ALIAS
+declare -A PACKAGES_ALIAS

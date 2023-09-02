@@ -2,13 +2,20 @@
 
 ## Usage
 
-- Download & extract: `curl -Lo setup.zip https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip && unzip setup.zip && rm setup.zip`
-- Go to the extracted folder `cd setup-script-personal-main/src`
-- Edit config.sh
-- Execute `./main.sh`
+```
+curl -sL https://github.com/titouanlacombe/setup-script-personal/archive/refs/heads/main.zip | unzip - && \
+pushd setup-script-personal-main/src && \
+./main.sh && \
+popd && \
+rm -rf setup-script-personal-main
+```
 
 ## Docker usage
 
-Create a container, enter it and test setup with:
+Create a container and enter it and test setup with:
 - `docker-compose up -d <distro>`
 - `docker exec -it <distro> /home/fakeuser/setup/main.sh`
+
+For example:
+
+`docker-compose up -d ubuntu && docker exec -it ubuntu /home/fakeuser/setup/main.sh`

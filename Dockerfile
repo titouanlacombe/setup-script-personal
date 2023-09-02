@@ -1,15 +1,17 @@
 ARG image
 FROM ${image}
 
-# User setup (distros docker images workaround)
 ARG distro
-COPY src/setup_user.sh src/config.sh ./
-COPY src/distros/${distro}/config.sh ./d-config.sh
-RUN ./setup_user.sh && \
-	rm -f ./setup_user.sh ./config.sh ./d-config.sh
+ENV DISTRO=${distro}
 
-# Run forever and stop with SIGKILL
+# Fake user setup (specific to docker)
+COPY src/docker-setup.sh src/distros/${distro}/config.sh ./
+RUN ./docker-setup.sh && rm -f *.sh
+
+# Runtime setup
 USER fakeuser
 WORKDIR /home/fakeuser/setup
+
+# Run forever and stop with SIGKILL
 STOPSIGNAL SIGKILL
-CMD tail -f /dev/null
+CMD sleep infinity
