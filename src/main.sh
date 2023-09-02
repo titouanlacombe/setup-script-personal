@@ -102,8 +102,8 @@ fi
 sudo chsh -s "/bin/zsh" $(whoami)
 
 # Makepie
-echo "Installing makepie..."
-pip3 install makepie --break-system-packages
+# echo "Installing makepie..."
+# pip3 install makepie --break-system-packages
 
 # --- Cleanup ---*
 echo "Cleaning up..."
