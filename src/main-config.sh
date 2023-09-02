@@ -17,6 +17,7 @@ PACKAGES=(
 	"vlc"
 	"ffmpeg"
 	"code"
+	"docker-compose"
 	"fonts-firacode"
 	"virt-manager"
 )

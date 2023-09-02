@@ -60,7 +60,6 @@ if ! command -v docker; then
 	curl -fsSL "https://get.docker.com" | sh
 fi
 sudo usermod -aG docker $(whoami)
-sudo $PM_INSTALL docker-compose
 
 # Rust
 if ! command -v rustup; then

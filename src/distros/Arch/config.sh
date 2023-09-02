@@ -6,8 +6,11 @@ PM_REMOVE="$PM -Rns --noconfirm"
 PM_SEARCH="$PM -Ss"
 PM_CLEAN="$PM -Scc --noconfirm"
 
-PACKAGES_ALIAS=(
+REQS_ALIAS=(
 	["gpg"]="gnupg"
 	["python3-pip"]="python-pip"
+)
+
+PACKAGES_ALIAS=(
 	["fonts-firacode"]="ttf-fira-code"
 )
