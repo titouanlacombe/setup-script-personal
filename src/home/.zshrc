@@ -42,10 +42,6 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Add /home/cosmic/.local/bin to PATH
-export PATH=$PATH:/home/cosmic/.local/bin
+# Add /home/$USER/.local/bin to PATH
+export PATH=$PATH:/home/$USER/.local/bin

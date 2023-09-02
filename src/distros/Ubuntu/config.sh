@@ -1,6 +1,7 @@
-PM_UPDATE="apt update"
-PM_UPGRADE="apt full-upgrade -y"
-PM_INSTALL="apt install -y"
-PM_REMOVE="apt remove -y"
-PM_SEARCH="apt search"
-PM_CLEAN="sudo apt autoremove -y && sudo apt clean all"
+PM=apt-get
+PM_UPDATE="$PM update"
+PM_UPGRADE="$PM full-upgrade -y"
+PM_INSTALL="$PM install -y"
+PM_REMOVE="$PM remove -y"
+PM_SEARCH="$PM search"
+PM_CLEAN="$PM autoremove -y && $PM clean all"

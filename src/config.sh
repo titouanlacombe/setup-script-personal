@@ -1,14 +1,11 @@
-GIT_USERNAME="Titouan Lacombe"
-GIT_EMAIL="titouan.lacombe99@gmail.com"
-
 PACKAGES=(
 	"curl"
-	"wget"
 	"gpg"
 	"git"
 	"zsh"
 	"vlc"
 	"ffmpeg"
+	"code"
 	"flatpak"
 	"clang"
 	"fonts-firacode"
@@ -16,8 +13,6 @@ PACKAGES=(
 	"virt-manager"
 	"libvirt"
 	"qemu"
-
-	"lutris"
 )
 
 FLATPAK_PACKAGES=(
@@ -40,6 +35,7 @@ FLATPAK_PACKAGES=(
 REQS=(
 	"sudo"
 	"lsb-release"
+	"wget"
 )
 
 declare -A PACKAGES_ALIAS

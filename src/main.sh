@@ -20,10 +20,23 @@ fi
 source "config.sh"
 source "distros/$DISTRO/config.sh"
 
-# --- Setup ---
+# Pre-setup
 if [ -f "distros/$DISTRO/presetup.sh" ]; then
 	source "distros/$DISTRO/presetup.sh"
 fi
+
+# Copy home files
+HOME_DIR="home"
+FILES=$(ls -A "$HOME_DIR")
+for FILE in $FILES; do
+	cp -r "$HOME_DIR/$FILE" "$HOME"
+done
+
+mkdir -p "$HOME/projects"
+
+# Virtual manager
+mkdir -p "$HOME/VMs/images" "$HOME/VMs/disks"
+chmod 777 "$HOME/VMs/images" "$HOME/VMs/disks" # TODO test
 
 # Update packages
 sudo $PM_UPDATE
@@ -38,34 +51,32 @@ for i in "${!PACKAGES[@]}"; do
 done
 sudo $PM_INSTALL ${PACKAGES[@]}
 
-# Custom setup
+# Distro setup
 if [ -f "distros/$DISTRO/setup.sh" ]; then
 	source "distros/$DISTRO/setup.sh"
 fi
 
-# VSCode
-if ! command -v code; then
-	sudo $PM_INSTALL code
-fi
-
 # Flatpak packages
-sudo flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-sudo flatpak install -y --noninteractive ${FLATPAK_PACKAGES[@]}
+flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
+flatpak install -y --noninteractive ${FLATPAK_PACKAGES[@]}
 
-# powerlevel10k (Zsh theme)
-if [ ! -d ~/powerlevel10k ]; then
-	git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" ~/powerlevel10k
-fi
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# powerlevel10k (zsh theme)
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc
+sed "s/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/g" "$HOME/.zshrc"
 
 # Makepie
 pip3 install makepie
 
 # Docker
-# TODO rootless docker?
 if ! command -v docker; then
 	curl -fsSL "https://get.docker.com" | sh
 fi
-sudo usermod -aG docker $(whoami)
+sudo usermod -aG docker $USER
 sudo $PM_INSTALL docker-compose
 
 # Rust
@@ -73,29 +84,8 @@ if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
 fi
 
-# Configs
-HOME_DIR="home"
-FILES=$(ls -A "$HOME_DIR")
-for FILE in $FILES; do
-	cp -r "$HOME_DIR/$FILE" "$HOME"
-done
-
-mkdir -p "$HOME/projects"
-
-# Virtual manager
-mkdir -p "$HOME/VMs/images" "$HOME/VMs/disks"
-chmod 777 "$HOME/VMs/images" "$HOME/VMs/disks" # TODO test
-
-# Aliases
-echo "alias pupdate='sudo $PM_UPDATE && sudo $PM_UPGRADE'" >> "$HOME/.zshrc"
-echo "alias pinstall='sudo $PM_INSTALL'" >> "$HOME/.zshrc"
-echo "alias premove='sudo $PM_REMOVE'" >> "$HOME/.zshrc"
-echo "alias psearch='$PM_SEARCH'" >> "$HOME/.zshrc"
-echo "alias pclean='$PM_CLEAN'" >> "$HOME/.zshrc"
-echo "alias dc='docker-compose'" >> "$HOME/.zshrc"
-
 # --- Cleanup ---
-eval $PM_CLEAN
+sudo sh -c $PM_CLEAN
 
 if [ -f "distros/$DISTRO/clean.sh" ]; then
 	source "distros/$DISTRO/clean.sh"
