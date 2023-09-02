@@ -2,20 +2,22 @@
 REQS=(
 	"wget"
 	"gpg"
+	"rsync"
+	"python3-pip"
+
+	"curl"
+	"git"
+	"flatpak"
+	"neofetch"
 )
 
 # Packages to install
 PACKAGES=(
-	"curl"
-	"git"
 	"zsh"
 	"vlc"
 	"ffmpeg"
 	"code"
-	"flatpak"
-	"neofetch"
 	"fonts-firacode"
-	"python3-pip"
 	"virt-manager"
 )
 

@@ -67,10 +67,13 @@ if ! command -v rustup; then
 	curl --proto '=https' --tlsv1.3 "https://sh.rustup.rs" -sSf | sh -s -- -y
 fi
 
-# Flatpak packages
-echo "Installing flatpak packages..."
-flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-flatpak install -y --noninteractive ${FLATPAK_PACKAGES[@]}
+# If dbus is running
+if [ -n "$(pgrep dbus)" ]; then
+	# Install flatpak packages
+	echo "Installing flatpak packages..."
+	flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
+	flatpak install -y --noninteractive ${FLATPAK_PACKAGES[@]}
+fi
 
 # Copy home files
 echo "Copying home files..."
@@ -99,5 +102,6 @@ if [ -f "distros/$DISTRO/clean.sh" ]; then
 fi
 
 # End
+neofetch
 echo "Setup complete !"
 echo "Reboot to apply changes"
