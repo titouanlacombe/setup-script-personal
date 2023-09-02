@@ -1,46 +1,44 @@
-GIT_USERNAME="Titouan Lacombe"
-GIT_EMAIL="titouan.lacombe99@gmail.com"
-
-PACKAGES=(
-	"curl"
+# Distro packages installed before distro setup
+REQS=(
 	"wget"
 	"gpg"
+	"rsync"
+	"python3-pip"
+
+	"curl"
 	"git"
+	"flatpak"
+	"neofetch"
+)
+
+# Packages to install
+PACKAGES=(
 	"zsh"
 	"vlc"
 	"ffmpeg"
-	"flatpak"
-	"clang"
+	"code"
+	"docker-compose"
 	"fonts-firacode"
-	"python3-pip"
 	"virt-manager"
-	"libvirt"
-	"qemu"
-
-	"lutris"
 )
 
+# Flatpak packages to install
 FLATPAK_PACKAGES=(
 	"com.brave.Browser"
 	"com.discordapp.Discord"
+	"io.bassi.Amberol"
 
+	"org.gimp.GIMP"
 	"com.valvesoftware.Steam"
 	"com.heroicgameslauncher.hgl"
-	"org.yuzu_emu.yuzu"
 	
 	"org.qbittorrent.qBittorrent"
 	"nz.mega.MEGAsync"
-	"io.bassi.Amberol"
-	"org.gimp.GIMP"
 	
 	"org.bunkus.mkvtoolnix-gui"
 	"fr.handbrake.ghb"
 )
 
-REQS=(
-	"sudo"
-	"lsb-release"
-)
-
-declare -A PACKAGES_ALIAS
+# Set aliases to empty by default
 declare -A REQS_ALIAS
+declare -A PACKAGES_ALIAS

@@ -1,12 +1,16 @@
-PM_UPDATE="pacman -Sy"
-PM_UPGRADE="pacman -Su --noconfirm"
-PM_INSTALL="pacman -S --noconfirm --needed"
-PM_REMOVE="pacman -Rns --noconfirm"
-PM_SEARCH="pacman -Ss"
-PM_CLEAN="sudo pacman -Scc --noconfirm"
+PM=pacman
+PM_UPDATE="$PM -Sy"
+PM_UPGRADE="$PM -Su --noconfirm"
+PM_INSTALL="$PM -S --noconfirm --needed"
+PM_REMOVE="$PM -Rns --noconfirm"
+PM_SEARCH="$PM -Ss"
+PM_CLEAN="$PM -Scc --noconfirm"
 
-PACKAGES_ALIAS=(
+REQS_ALIAS=(
 	["gpg"]="gnupg"
 	["python3-pip"]="python-pip"
+)
+
+PACKAGES_ALIAS=(
 	["fonts-firacode"]="ttf-fira-code"
 )
