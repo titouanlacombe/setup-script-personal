@@ -24,22 +24,22 @@ source "distros/$DISTRO/config.sh"
 
 # Function to handle package installation (with aliases)
 install_packages() {
-    local -n PACKAGES=$1
+    local -n PKGS=$1
     local -n ALIASES=$2
-    local PACKAGE
+    local PKG
 
     # Convert packages names to alias if needed
-    for i in "${!PACKAGES[@]}"; do
-        PACKAGE=${PACKAGES[$i]}
-        if [ -n "${ALIASES[$PACKAGE]}" ]; then
-            PACKAGES[$i]=${ALIASES[$PACKAGE]}
+    for i in "${!PKGS[@]}"; do
+        PKG=${PKGS[$i]}
+        if [ -n "${ALIASES[$PKG]}" ]; then
+            PKGS[$i]=${ALIASES[$PKG]}
         fi
     done
 
     # Install required packages
     echo "Installing $3..."
     sudo $PM_UPDATE
-    sudo $PM_INSTALL ${PACKAGES[@]}
+    sudo $PM_INSTALL ${PKGS[@]}
 }
 
 # Install required packages
@@ -86,9 +86,10 @@ chmod 777 "$HOME/VMs/images" "$HOME/VMs/disks"
 
 # Configure zsh
 echo "Configuring zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sed "s/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/g" "$HOME/.zshrc"
+chsh -s $(which zsh)
 
 # Makepie
 echo "Installing makepie..."
