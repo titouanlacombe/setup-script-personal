@@ -96,7 +96,8 @@ fi
 if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
 	# Install powerlevel10k
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-	sed "s/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/g" "$HOME/.zshrc"
+	sed -i '/^ZSH_THEME/d' ~/.zshrc
+	echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 fi
 
 # Change default shell
