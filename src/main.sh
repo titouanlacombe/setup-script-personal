@@ -71,7 +71,7 @@ if [ -n "$(pgrep dbus)" ]; then
 	# Install flatpak packages
 	echo "Installing flatpak packages..."
 	flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
-	flatpak update --noninteractive
+	flatpak update --appstream --noninteractive
 	flatpak install --user --noninteractive ${FLATPAK_PACKAGES[@]}
 fi
 
