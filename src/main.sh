@@ -105,6 +105,17 @@ sudo chsh -s "/bin/zsh" $(whoami)
 # echo "Installing makepie..."
 # pip3 install makepie --break-system-packages
 
+# Install firacode nerd font
+font_dir="$HOME/.local/share/fonts"
+font_name="FiraCode"
+if ! [ -d "$font_dir/$font_name" ]; then
+	echo "Installing $font_name nerd font..."
+	mkdir -p "$font_dir"
+	curl -fsSL "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip" -o /tmp/firacode.zip
+	unzip -o /tmp/firacode.zip -d "$font_dir"
+	rm /tmp/firacode.zip
+fi
+
 # --- Cleanup ---*
 echo "Cleaning up..."
 sudo sh -c "$PM_CLEAN"
