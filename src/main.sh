@@ -94,9 +94,9 @@ fi
 # Change default shell
 sudo chsh -s "/bin/zsh" $(whoami)
 
-# Makepie
-# echo "Installing makepie..."
-# pip3 install makepie --break-system-packages
+# Try to install makepie (continue if fails)
+echo "Trying to install makepie..."
+pip3 install makepie || true
 
 # Install firacode nerd font
 # TODO test font + switch to custom patched font?
