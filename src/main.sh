@@ -75,11 +75,6 @@ if [ -n "$(pgrep dbus)" ]; then
 	flatpak install --user --noninteractive ${FLATPAK_PACKAGES[@]}
 fi
 
-# Copy home files
-echo "Copying home files..."
-rsync -av home/ "$HOME/"
-mkdir -p "$HOME/projects"
-
 # VMs directories
 mkdir -p "$HOME/VMs/images" "$HOME/VMs/disks"
 chmod 777 "$HOME/VMs/images" "$HOME/VMs/disks"
@@ -117,6 +112,11 @@ if ! [ -d "$font_dir/$font_name" ]; then
 	unzip -o /tmp/firacode.zip -d "$font_dir"
 	rm /tmp/firacode.zip
 fi
+
+# Copy home files
+echo "Copying home files..."
+rsync -av home/ "$HOME/"
+mkdir -p "$HOME/projects"
 
 # --- Cleanup ---*
 echo "Cleaning up..."
