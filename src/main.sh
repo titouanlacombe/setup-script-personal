@@ -81,18 +81,14 @@ chmod 777 "$HOME/VMs/images" "$HOME/VMs/disks"
 
 echo "Configuring zsh..."
 
-# If oh-my-zsh is not installed
+# Install oh-my-zsh
 if ! [ -d "$HOME/.oh-my-zsh" ]; then
-	# Install oh-my-zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 fi
 
-# If powerlevel10k is not installed
+# Install powerlevel10k
 if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
-	# Install powerlevel10k
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
-	sed -i '/^ZSH_THEME/d' ~/.zshrc
-	echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 fi
 
 # Change default shell
@@ -118,7 +114,7 @@ echo "Copying home files..."
 rsync -av home/ "$HOME/"
 mkdir -p "$HOME/projects"
 
-# --- Cleanup ---*
+# Cleanup
 echo "Cleaning up..."
 sudo sh -c "$PM_CLEAN"
 if [ -f "distros/$DISTRO/clean.sh" ]; then
