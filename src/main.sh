@@ -105,7 +105,7 @@ if ! [ -d "$font_dir/$font_name" ]; then
 	echo "Installing $font_name nerd font..."
 	mkdir -p "$font_dir"
 	curl -fsSL "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip" -o /tmp/firacode.zip
-	unzip -o /tmp/firacode.zip -d "$font_dir"
+	unzip -o /tmp/firacode.zip -d "$font_dir/$font_name"
 	rm /tmp/firacode.zip
 fi
 
