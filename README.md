@@ -11,8 +11,8 @@ curl -sL https://github.com/titouanlacombe/setup-script-personal/archive/refs/he
 unzip temp.zip && \
 rm temp.zip && \
 pushd setup-script-personal-main/src && \
-./main.sh && \
-popd && \
+./main.sh; \
+popd; \
 rm -rf setup-script-personal-main
 ```
 
