@@ -1,5 +1,9 @@
 # Script to setup a PC workstation
 
+## Requirements
+
+unzip, curl, sudo
+
 ## Usage
 
 ```
@@ -12,7 +16,7 @@ popd && \
 rm -rf setup-script-personal-main
 ```
 
-## Docker usage
+## Usage with docker (for local testing)
 
 Create a container and enter it and test setup with:
 - `docker-compose up -d <distro>`
