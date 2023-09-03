@@ -90,7 +90,7 @@ fi
 # If powerlevel10k is not installed
 if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
 	# Install powerlevel10k
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 	sed -i '/^ZSH_THEME/d' ~/.zshrc
 	echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 fi
