@@ -99,6 +99,7 @@ sudo chsh -s "/bin/zsh" $(whoami)
 # pip3 install makepie --break-system-packages
 
 # Install firacode nerd font
+# TODO test font + switch to custom patched font?
 font_dir="$HOME/.local/share/fonts"
 font_name="FiraCode"
 if ! [ -d "$font_dir/$font_name" ]; then
