@@ -99,3 +99,6 @@ plugins=(git)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
+
+# Add local bin to path
+export PATH="$HOME/.local/bin:$PATH"
